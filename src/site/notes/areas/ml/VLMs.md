@@ -4,14 +4,17 @@
 
 #multimodal #vision-language-models 
 
+Multimodal VLMs such as [[areas/ml/papers/Learning Transferable Visual Models From Natural Language Supervision\|CLIP]] trained with a [[areas/ml/Contrastive Learning\|contrastive]] objective have enabled zero-shot adaptation to novel tasks, without the need for fine-tuning. 
 ## Modelling
 
-Since the introduction of Frozen (Tsimpoukelli et al., 2021) and Flamingo (Alayrac et al., 2022), most VLMs have been built on top of unimodal pre-trained backbones rather than training entirely new models from scratch.
+Since the introduction of Frozen (Tsimpoukelli et al., 2021) and [[areas/ml/papers/Flamingo a Visual Language Model for Few-Shot Learning\|Flamingo]], most VLMs have been built on top of unimodal pre-trained backbones rather than training entirely new models from scratch.
 
 * **A pre-trained vision encoder transforms an image into a representation that is independent of the user’s prompt, thereby trying to capture as much information as possible. They can still however miss details pertinent to the prompt.**
 
+However since these models build on top of pre-trained LMs, and as a side effect, directly inherit their weaknesses such as hallucinations and poor generalisation to long sequence lengths.
 ### Cross-Attention
-The cross-attention architecture is introduced in Flamingo (Alayrac et al., 2022). The image hidden states encoded by the vision backbone are used to condition the frozen language model using freshly initialised cross-attention layers that are interleaved between the pre-trained language model layers. **The keys and values in these layers are obtained from the vision features, while the queries are derived from the language inputs**.
+The cross-attention architecture is introduced in [[areas/ml/papers/Flamingo a Visual Language Model for Few-Shot Learning\|Flamingo]]. The image hidden states encoded by the vision backbone are used to condition the frozen language model using freshly initialised cross-attention layers that are interleaved between the pre-trained language model layers. **The keys and values in these layers are obtained from the vision features, while the queries are derived from the language inputs**.
+This form of in-context learning has significant advantages over gradient-based few-shot learning methods.
 ### Self-Attention
 The self-attention architecture introduced by FROMAGe (Koh et al., 2023) and BLIP2 (Li et al., 2023), the output of the vision encoder is treated as tokens and concatenated to the sequence of text tokens. The entire sequence is then passed as input to the language model. We refer to the layers that map the vision-hidden space to the text-hidden space as ***modality projection layers***.
 
@@ -43,9 +46,10 @@ Traditional multimodal benchmarks, such as VQAv2, OKVQA, TextVQA, and COCO Capti
 * Use benchmarks that include multiple-choice questions (MCQs), where the model selects the correct option by choosing the corresponding letter
 
 ## Boosting Performance
-
+* Li et al. (FLIP) inspired by the sparse computation of Masked Auto-encoders propose to randomly remove a large portion of image patches during CLIP based contrastive image-text pre-training allowing for models to learn from more image-text pairs given the same wall-clock time and contrast more samples per iteration with similar memory footprint.
+* Sun et al. (EVA-CLIP) use pre-trained EVA models which combine high-level semantics of image-text contrastive learning with geometric and structural capture from masked image modelling to improve feature representation and expedite convergence of CLIP models
 * Chen and Wang, 2022 (Pali) report a stronger increase in performance by **scaling the size of the vision encoder compared to scaling the size of the language model** even though scaling the vision encoder leads to a smaller parameter count increase.
-* Because vision encoders are often trained on different datasets and optimized for various tasks, some models, like SPHINX (Lin et al., 2023), combine representations from multiple encoders, such as DINOv2 (Oquab et al., 2023) and CLIP (Radford et al., 2021), to create a **richer sequence of visual embeddings**, though this comes at the expense of computational efficiency.
+* Because vision encoders are often trained on different datasets and optimised for various tasks, some models, like SPHINX (Lin et al., 2023), combine representations from multiple encoders, such as DINOv2 (Oquab et al., 2023) and CLIP (Radford et al., 2021), to create a **richer sequence of visual embeddings**, though this comes at the expense of computational efficiency.
 
 ## Data
 * OBELICS: Open dataset of interleaved image-text documents. It has been reported that interleaved image-text documents are the biggest driving factor in increasing the performance on visual question answering (VQA) tasks.
@@ -55,7 +59,7 @@ Traditional multimodal benchmarks, such as VQAv2, OKVQA, TextVQA, and COCO Capti
 | :----------: | :------------: |
 |  Alt-texts   |      49.8      |
 |  Synthetic   |    **52.9**    |
-* It has been shown that a large proportion of mistakes of VLMs stem from their failure to accurately extract text in images or documents. Dataset should be complemented with texts written with a wide variety of fonts and colors and on diverse backgrounds.
+* It has been shown that a large proportion of mistakes of VLMs stem from their failure to accurately extract text in images or documents. Dataset should be complemented with texts written with a wide variety of fonts and colours and on diverse backgrounds.
 * Adding PDF documents helps the model learn to read text from images.
 
 | **OCR Data** | **Resolution** | **Performance on DocVQA** |
@@ -66,7 +70,7 @@ Traditional multimodal benchmarks, such as VQAv2, OKVQA, TextVQA, and COCO Capti
 
 * Cauldron: a massive collection of 50 vision-language datasets, covering a wide range of tasks: general visual question answering, counting, captioning, text transcription, document understanding, chart/figure understanding, table understanding, visual reasoning, geometry, spotting differences between 2 images or converting a screenshot to a functional code.
 
-## Training Strategies
+## Training Strategies and Tricks
 
 ### Pre-Training
 * [[areas/ml/papers/What matters when building vision-language models?\|What matters when building vision-language models?]]: Breakdown pre-training into two parts. First train at smaller image resolutions and larger batch sizes for image-text documents and/or image-text pairs. Then decrease batch size and train with PDFs.

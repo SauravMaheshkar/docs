@@ -8,7 +8,7 @@
 > * Attempt to justify design choices in VLM architecture design
 
 * The development of open LLMs enables researchers to leverage unimodal pre-trained models to create VLMs.
-* The literature reveals different disparate design choices which are not justified experimentally. For example, Flamingo and Idefics(1) use a interleaved Transformer-based cross-attention strategy to fuse the image information into the language model while BLIP(2) and Visual instruction tuning concatenate the sequence of image hidden states with the sequence of text embeddings, and feed the concatenated sequence to the language model.
+* The literature reveals different disparate design choices which are not justified experimentally. For example, [[areas/ml/papers/Flamingo a Visual Language Model for Few-Shot Learning\|Flamingo]] and Idefics(1) use a interleaved Transformer-based cross-attention strategy to fuse the image information into the language model while BLIP(2) and Visual instruction tuning concatenate the sequence of image hidden states with the sequence of text embeddings, and feed the concatenated sequence to the language model.
 * Identify two areas in which models differ
 	* *Model Architecture:* how vision and text is fused 
 		* **Cross-Attention:** images encoded through the vision backbone are injected at different layers within the language model by interleaving cross-attention blocks in which the text cross-attends to the image hidden states.

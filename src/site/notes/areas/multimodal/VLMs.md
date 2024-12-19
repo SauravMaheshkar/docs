@@ -4,7 +4,7 @@
 
 #multimodal #vision-language-models 
 
-Multimodal VLMs such as [[areas/multimodal/papers/Learning Transferable Visual Models From Natural Language Supervision\|CLIP]] trained with a [[areas/ml/Contrastive Learning\|contrastive]] objective have enabled zero-shot adaptation to novel tasks, without the need for fine-tuning. 
+Multimodal VLMs such as [[areas/multimodal/papers/Learning Transferable Visual Models From Natural Language Supervision\|CLIP]] trained with a [[areas/Contrastive Learning\|contrastive]] objective have enabled zero-shot adaptation to novel tasks, without the need for fine-tuning. 
 ## Modelling
 
 Since the introduction of Frozen (Tsimpoukelli et al., 2021) and [[areas/multimodal/papers/Flamingo a Visual Language Model for Few-Shot Learning\|Flamingo]], most VLMs have been built on top of unimodal pre-trained backbones rather than training entirely new models from scratch.

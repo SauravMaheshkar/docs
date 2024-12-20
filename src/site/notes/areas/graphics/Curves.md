@@ -12,6 +12,9 @@
 ## Definitions
 
 ### Polylines
+{ #b2cfa1}
+
+
 Polylines are sequence of vertices connected by straight line segments. Suitable for drawing simple shapes but lack any notion of smoothness required for modelling complex objects and surfaces.
 
 * A smooth curve is always converted to a polyline for rendering.
@@ -24,6 +27,8 @@ Polylines are sequence of vertices connected by straight line segments. Suitable
 
 - A **Spline** is a curve that connects two or more points, based on control points. These control points determine the trajectory and shape of the spline.
 - **Tessellation** is the process of displaying the points on the curve $P(t)$ by discretising it at discrete $t$ values. This involves sampling the curve at intervals to create a series of points that approximate the curve.
+{ #c7d2dc}
+
 - **Interpolation** refers to the process of constructing a curve in such a way that it precisely passes through all points.
 - **Approximation** involves constructing a curve that doesn’t necessarily pass through all the points. Used to represent curves with few control points.
 
@@ -74,6 +79,9 @@ $$ \begin{pmatrix}1 \\ t \\ t^2 \\ t^3 \end{pmatrix} = \begin{pmatrix} 1 & 1 & 1
 	- Take the middle point.
 ---
 ### 2. B-Spline Curves
+{ #d3c475}
+
+
 - Need at least 4 control points.
 - B-Splines are locally cubic, meaning each segment of the curve is defined by a cubic polynomials.
 - Unlike Bezier curves, B-Spline curves are **not constrained to pass through any control points**, giving us more flexibility in shaping the curve.

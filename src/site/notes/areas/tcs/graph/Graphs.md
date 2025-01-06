@@ -1,8 +1,7 @@
 ---
-{"dg-publish":true,"permalink":"/areas/tcs/graph/graphs/"}
+{"dg-publish":true,"permalink":"/areas/tcs/graph/graphs/","tags":["comp36111","graph-theory"]}
 ---
 
-#graph-theory 
 
 The **in-degree** of a vertex $v$ in $G = (V, E)$ is the number of incoming edges $$|\{ w \in V : (w, v) \in E\}|$$ similarly with out-degree.
 

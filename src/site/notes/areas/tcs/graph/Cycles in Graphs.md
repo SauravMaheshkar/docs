@@ -1,14 +1,15 @@
 ---
-{"dg-publish":true,"permalink":"/areas/tcs/graph/cycles-in-graphs/"}
+{"dg-publish":true,"permalink":"/areas/tcs/graph/cycles-in-graphs/","tags":["comp36111","graph-theory"]}
 ---
 
-#graph-theory 
 * A **cycle** in a directed graph $G$ is a path $v_0, \ldots, v_k (k\geq 1)$ such that $(v_k, v_0)$ is also an edge.
 * We call $G$ cyclic if it has a cycle, otherwise acyclic.
 
 > [! NOTE] CYCLICITY
 > **Given:** A directed graph $G = (V, E)$
 > **Return:** YES if $G$ is cyclic, NO otherwise
+
+* [[areas/tcs/graph/Topological Sort\|Topological Sort]] solves CYCLICITY in linear time
 
 ---
 

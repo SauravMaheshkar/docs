@@ -3,7 +3,11 @@
 ---
 
 #complexity-theory 
+* NOTE: Throughout #complexity-theory we use language and computational problem interchangeably
 ## Notation, Vocabulary, ....
+* A language is **recursively enumerable (r.e.)** if there is a (deterministic) Turing Machine which recognises it
+* A language $L$ over alphabet $\Sigma$ is **co-recursively enumerable** if $\Sigma^* \setminus L$ is r.e.
+* A language is **recursive** iff it is both r.e. and co r.e.
 
 > [! IMPORTANT] Definition
 > 

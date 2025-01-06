@@ -1,8 +1,6 @@
 ---
-{"dg-publish":true,"permalink":"/areas/tcs/graph/adjacency-lists-and-matrix/"}
+{"dg-publish":true,"permalink":"/areas/tcs/graph/adjacency-lists-and-matrix/","tags":["comp36111","graph-theory"]}
 ---
-
-#graph-theory 
 
 For adjacency lists ($O(n+m)$ Memory):
 

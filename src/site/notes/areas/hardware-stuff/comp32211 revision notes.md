@@ -2,6 +2,14 @@
 {"dg-publish":true,"permalink":"/areas/hardware-stuff/comp32211-revision-notes/","tags":["comp32211"]}
 ---
 
+### Timing
+* Difference in arrival time is referred to be as **clock skew**.
+* **Timing closure** is making the logic fit within the desired clock period.
+* Static Timing Analysis rules help figure out critical path (longest/slowest part between registers)
+* Negative Slack -> Too Slow
+
+---
+
 * **Technology Mapping:** Converting a design into standard cells that can be laid out on the chip
 * **Hardened:** Part of a design which has been transformed to a layout
 * **Floor-planning:** Placement of macrocells

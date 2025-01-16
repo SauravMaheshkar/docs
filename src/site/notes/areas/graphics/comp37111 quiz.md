@@ -21,8 +21,8 @@
 4. In the previous question, what is the mid point on the curve? The control points of the B-Spline are at (-1,-1), (-1,1), (1,1), and (1,-1).
 	1. (1, 0)
 	2. (0, 1)
-	3. (11/12, 0)
-	4. ✅ (0, 11/12)
+	3. (1/2, 0)
+	4. ✅ (0, 1/2)
 5. Select the true statement:
 	1. A same curve cannot be defined using both bezier and b-spline curve.
 	2. B-spline curves are good for interpolation when passing through an exact control point.
@@ -63,8 +63,8 @@
 12. In animating a bouncing ball, what does the rate of acceleration convey?
 	1. ✅ Ball's weight
 	2. Ball's stiffness
-	3. # fps
-	4. # in-between frames (tweening)
+	3. fps
+	4. in-between frames (tweening)
 13. Which describes the standard frames per second needed for film, video, and virtual reality respectively?
 	1. 24, 24, 24
 	2. ✅ 24, 30, 90

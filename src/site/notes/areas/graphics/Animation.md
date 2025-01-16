@@ -7,7 +7,7 @@
 
 ## Overview
 * Animation is mostly an extension of modelling where we try to represent a model as a sequence of images which when viewed sequentially gives us a sense of motion.
-* Film requires 24 fps and VR requires 90 fps.
+* Film requires 24 fps, video 30 fps and VR 90 fps.
 * *Artist driven animation:* rigging, skinning and posing
 	* *Rigging* is the process of building such controls.
 		* Forward kinematics describes position of body parts as a function of joint angles. Given angles determine end effector

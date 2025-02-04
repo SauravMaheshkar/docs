@@ -26,7 +26,7 @@ union-find(V, E)
 **Lemma:** In a series of operations of makeSet, union and find on $n$ elements using the size-heuristic, no element can have its cell field assigned more than $\lfloor \log n \rfloor + 1$ times.
 **Proof:** Whenever the cell value of a node changes, its cardinality will at-least double (only way cells get merged is if its size is bigger than some other cell). But $1 \leq | v \rightarrow \text{cell}| \leq n$. This can happen no more than $\lfloor \log n \rfloor$ times.
 
-* With this implementation, the running-time of union find is $O(m + n \log n), n = |V|, m=|E|$. Total number of calls to makeSet, union and find is $O(m + n)$, and each union will update cell pointer $\lfloor \log n \rfloor$ times.
+* With this implementation, the running-time of union find is $O(|E| + |V| \log |V|)$. Total number of calls to makeSet, union and find is $O(|V| + |E|)$, and each union will update cell pointer $\lfloor \log n \rfloor$ times.
 
 * Further optimisation can be done by representing cells as *trees*. The union operation now simply *updates the parent pointer* and updates size. More in the find operation we flatten the tree as we go along i.e.
   

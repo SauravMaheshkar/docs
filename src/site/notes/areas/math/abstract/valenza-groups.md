@@ -33,19 +33,22 @@ $$st = e = st' \implies t = t'$$
 
 > [!info] Let $G$ be a group. If $s, t \in G$ with $st = e$, then $s = t^{-1}$ and $t = s^{-1}$
 
-*Proof:* $$\begin{array}{rl} st &= e \\ s^{-1}(st) &= s^{-1} \\ (s^{-1}s)t &= s^{-1} \\ t &= s^{-1}  \end{array}$$
+*Proof:* 
+$$\begin{array}{rl} st &= e \\ s^{-1}(st) &= s^{-1} \\ (s^{-1}s)t &= s^{-1} \\ t &= s^{-1}  \end{array}$$
 > [!info] Let $G$ be a group $\forall s \in G$ $(s^{-1})^{-1} = s$
 
 *Proof:* By uniqueness of inverses
 
 > [!info] Let $G$ be a group $\forall s, t \in G$ $(st)^{-1} = t^{-1}s^{-1}$
 
-*Proof:* $$\begin{array}{rl} (st)t^{-1}s^{-1} = s(tt^{-1})s^{-1} = ss^{-1} = e 
+*Proof:* 
+$$\begin{array}{rl} (st)t^{-1}s^{-1} = s(tt^{-1})s^{-1} = ss^{-1} = e 
 \end{array}$$Thus, $t^{-1}s^{-1} = (st)^{-1}$ 
 
 > [!info] Let $G$ be a group. If $s \in G$, then $ss = s$ iff $s = e$
 
-*Proof*: $$\begin{array}{rl} ss &= s \\ s &= e\end{array}$$
+*Proof*: 
+$$\begin{array}{rl} ss &= s \\ s &= e\end{array}$$
 
 ---
 
@@ -75,20 +78,24 @@ For this to hold $\varphi(e_0)$ must be $e_1$
 
 > [!info] If $\varphi: G_0 \mapsto G_1$ is a group homomorphism, then $\varphi(s^{-1}) = (\varphi (s))^{-1} \,\,\,\, \forall s \in G_0$
 
-*Proof:* $$\begin{array}{rl} s s^{-1} &= e_0 \\ \varphi(s) \varphi(s^{-1}) &= \varphi(e_0) \\ \varphi(s) \varphi(s^{-1}) &= e_1 \end{array}$$
+*Proof:* 
+$$\begin{array}{rl} s s^{-1} &= e_0 \\ \varphi(s) \varphi(s^{-1}) &= \varphi(e_0) \\ \varphi(s) \varphi(s^{-1}) &= e_1 \end{array}$$
 By previous proposition, $\varphi(s^{-1}) = (\varphi (s))^{-1}$
 
 ---
 
 * A bijective group homomorphism is called an **group isomorphism**; denoted $G_0 \cong G_1$
-* Let $\varphi: G_0 \mapsto G_1$ be a group homomorphism. Then the **kernel** of $\varphi$ denoted $\text{Ker} (\varphi)$ is defined as: $$\text{Ker}(\varphi) = \{ s \in G_0  : \varphi(s) = e_1 \}$$
+* Let $\varphi: G_0 \mapsto G_1$ be a group homomorphism. Then the **kernel** of $\varphi$ denoted $\text{Ker} (\varphi)$ is defined as: 
+$$\text{Ker}(\varphi) = \{ s \in G_0  : \varphi(s) = e_1 \}$$
 > [!info] $\text{Ker}(\varphi)$ is a subgroup of $G_0$
 
 *Proof:* Let $s, t \in \text{Ker}(\varphi)$, we have $$\begin{array}{rl} \varphi(st^{-1}) &= \varphi(s) \varphi(t^{-1}) \\ &= \varphi(s) [\varphi(t)]^{-1} \\ &= e e^{-1} \\ &= e \in \text{Ker}(\varphi) \end{array}$$
-* The **image** of $\varphi$ is defined as: $$\text{Im}(\varphi) = \{ t \in G_1 : \exists s \in G_0 \,\,\, \text{s.t.} \,\, \varphi(s) = t\}$$
+* The **image** of $\varphi$ is defined as: 
+$$\text{Im}(\varphi) = \{ t \in G_1 : \exists s \in G_0 \,\,\, \text{s.t.} \,\, \varphi(s) = t\}$$
 > [!info] $\text{Im}(\varphi)$ is a subgroup of $G_1$
 
-* Let $\varphi: G_0 \mapsto G_1$ be a homomorphism of groups and suppose $\varphi(s) = t$, then $$\varphi^{-1} = \{ sk: k \in \text{Ker}(\varphi) \}$$
+* Let $\varphi: G_0 \mapsto G_1$ be a homomorphism of groups and suppose $\varphi(s) = t$, then 
+$$\varphi^{-1} = \{ sk: k \in \text{Ker}(\varphi) \}$$
 ---
 
 A **ring** (with unity) consists of a non-empty set $A$ together with two operations $+$ and $*$ s.t.:

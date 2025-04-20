@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/areas/os/idx/"}
+{"dg-publish":true,"permalink":"/areas/os/idx/","tags":["operating-systems"]}
 ---
 
 * some piece of software that manages the hardware 
@@ -19,6 +19,9 @@
 	* Persistent Storage, Transactions, Consistency, Resilience
 	* Interface to all devices
 * **Processor:** Interface -> Threads 
+* For an OS area we can ask the following:
+	* What hardware interface to handle? (*physical reality*)
+	* What software interface to provide? (*nicer abstraction*)
 ## Process (managing the CPU)
 * Execution environment with restricted rights provided by OS
 * What's in a process?:
@@ -46,6 +49,9 @@
 ## Device Drivers (managing I/O)
 * From the perspective of an OS, an I/O device is just a bunch of registers
 * each device will have its own unique and complex interface, the OS defines a single uniform interface for all devices and it becomes the responsibility of the device driver to talk with the device controller
+* 3rd party device drives are one of the most unreliable aspects of OS
+	* Poorly written by non-stake holders
+	* Ironically, the attempt to provide clean abstractions can lead to crashes
 ## Files & Directories (managing storage)
 * **Interface:** Files
 * Storage - special class of I/O devices

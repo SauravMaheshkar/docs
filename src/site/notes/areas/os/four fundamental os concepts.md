@@ -59,7 +59,7 @@ The Operating System is a:
 	* Must protect user programs from each other
 		* Prevent threads owned by one user from impacting threads owned by another user
 * Address Spaces encapsulate protection
-## 3. Process: an instance of a running protection
+## 3. Process: an instance of a running program
 * Execution environment with restricted rights
 	* protected address space with one or more threads
 	* owns memory (address space)
@@ -72,7 +72,7 @@ The Operating System is a:
 * Fundamental tradeoff:
 	* communication easier within a process
 	* communication harder between processes
-
+* In a modern OS, anything that runs outside of the kernel runs in a process
 ## 4. Dual mode operation / Protection
 * Hardware provides at least 2 modes:
 	* Kernel (or supervisor) mode
@@ -89,3 +89,8 @@ The Operating System is a:
 		* independent of user process
 	* trap or execution:
 		* internal asynchronous event in process triggers context switch
+* Processes executes in user mode
+	* to perform a privileged action, processes must request services from the OS kernel
+	* carefully controlled transition from user to kernel mode
+* kernel executes in kernel mode
+	* performs privileged action to support running processes

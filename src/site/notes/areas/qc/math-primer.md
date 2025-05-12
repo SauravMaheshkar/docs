@@ -46,8 +46,15 @@ Consider a linear operator$$A |\alpha\rangle = |\beta\rangle$$Expanding over an 
 $$\sigma_x = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}$$$$\sigma_y = \begin{pmatrix}0 & -i \\ i & 0\end{pmatrix}$$$$\sigma_z = \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}$$
 * **Prop:** $\sigma_x^2 = \sigma_y^2 = \sigma_z^2 = \mathbb{I}$
 * **Prop:** $$\begin{array}{ll}\sigma_x\sigma_y &= i\sigma_z \\ \sigma_y\sigma_z &= i\sigma_x \\ \sigma_z\sigma_x &= i\sigma_y\end{array}$$
+
+|                      Pauli Matrices                      |                                                Eigenvectors                                                 | Eigenvalues |
+| :------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------: | :---------: |
+| $\sigma_x = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}$  | $\frac{1}{\sqrt2}\begin{pmatrix}1 \\ 1\end{pmatrix}$, $\frac{1}{\sqrt2}\begin{pmatrix}1 \\ -1\end{pmatrix}$ |   $\pm$ 1   |
+| $\sigma_y = \begin{pmatrix}0 & -i \\ i & 0\end{pmatrix}$ | $\frac{1}{\sqrt2}\begin{pmatrix}1 \\ i\end{pmatrix}$, $\frac{1}{\sqrt2}\begin{pmatrix}1 \\ -i\end{pmatrix}$ |   $\pm$ 1   |
+| $\sigma_z = \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}$ |                 $\begin{pmatrix}1 \\ 0\end{pmatrix}$, $\begin{pmatrix}0 \\ 1\end{pmatrix}$                  |   $\pm$ 1   |
+
 ### Projectors
-If $|\alpha\rangle \in V$ is a unit vector, the uni-dimensional projector $P_{\alpha}$ is defined for some $|\gamma\rangle$ as$$\begin{array}{ll}P_{\alpha} | \beta \rangle &= |\alpha\rangle\langle \alpha | \beta \rangle \\ &= \langle \alpha | \beta \rangle |\alpha\rangle\end{array}$$This operator is called a projector since it projects a generic vector $|\beta\rangle$ along the dimension $|\alpha\rangle$
+If $|\alpha\rangle \in V$ is a unit vector, the uni-dimensional projector $P_{\alpha}$ is defined for some $|\beta\rangle$ as$$\begin{array}{ll}P_{\alpha} | \beta \rangle &= |\alpha\rangle\langle \alpha | \beta \rangle \\ &= \langle \alpha | \beta \rangle |\alpha\rangle\end{array}$$This operator is called a projector since it projects a generic vector $|\beta\rangle$ along the dimension $|\alpha\rangle$
 * **Prop:** $P_{\alpha} | \alpha \rangle = | \alpha \rangle$
 * **Prop:** $P_{\alpha} | \gamma \rangle = 0$ when $| \gamma \rangle$ is orthogonal to $| \alpha \rangle$
 * **Prop:** $P_{\alpha}^2 = P_{\alpha}$

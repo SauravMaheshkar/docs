@@ -33,6 +33,6 @@ A function $F: \mathbb{R}^p \rightarrow \mathbb{R}$ is said to be convex if $\fo
 ## 3. Smoothness
 
 > [! success] Defn: Lipschitz-Smoothness ($\beta$-Smooth or $\beta$- Lipschitz Smooth or $\beta$-Gradient Smooth)
-> For some $\beta>0$ and an at least once differentiable function $F: \mathbb{R}^p \rightarrow \mathbb{R}$ its gradients should be $\beta$-Lipschitz i.e. $\forall x, y$$$\Vert F(x) - F(y) \Vert \leq \beta \Vert x - y \Vert$$
+> For some $\beta>0$ and an at least once differentiable function $F: \mathbb{R}^p \rightarrow \mathbb{R}$ its gradients should be $\beta$-Lipschitz i.e. $\forall x, y$$$\Vert \nabla F(x) - \nabla F(y) \Vert \leq \beta \Vert x - y \Vert$$
 
 * *Example:* $F(x) = x^2$ is smooth with $\beta=2$

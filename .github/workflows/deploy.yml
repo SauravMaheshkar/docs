@@ -40,7 +40,7 @@ jobs:
           VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
 
       - name: Build Quartz
-        run: bun run quartz build --directory=vault
+        run: bun run scripts/build.ts -- --directory=vault --mode=build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4

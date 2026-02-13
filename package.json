@@ -21,6 +21,9 @@
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1",
     "sync": "./scripts/sync-vault.sh",
     "serve": "bun run scripts/serve.ts",
+    "build:vault": "bun run scripts/build.ts -- --directory=vault --mode=build",
+    "build:dev": "bun run scripts/build.ts -- --directory=vault --mode=build",
+    "serve:dev": "bun run scripts/build.ts -- --directory=vault --mode=serve",
     "check-links": "bun run scripts/check-dead-links.ts"
   },
   "engines": {

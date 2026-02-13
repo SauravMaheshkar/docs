@@ -7,12 +7,29 @@ const PORT = process.env.PORT || 8080;
 const PUBLIC_DIR = "./public";
 const BASE_PATH = process.env.BASE_PATH || "";
 
+const args = process.argv.slice(2);
+let directory = "vault";
+let basePath = BASE_PATH || "/docs";
+
+console.log("Args received:", args);
+
+for (let i = 0; i < args.length; i++) {
+  if (args[i] === "--directory" && args[i + 1]) {
+    directory = args[i + 1];
+  }
+  if (args[i] === "--basePath" && args[i + 1]) {
+    basePath = args[i + 1];
+  }
+}
+
+console.log("Using directory:", directory, "basePath:", basePath);
+
 async function buildSite() {
-  console.log("🔨 Building site...");
+  console.log(`🔨 Building site from '${directory}'...`);
 
   const buildProcess = spawn(
     "bun",
-    ["run", "quartz", "build", "--directory=vault"],
+    ["-e", `import { handleBuild } from './quartz/cli/handlers.js'; await handleBuild({ directory: '${directory}', output: 'public', serve: false, watch: false })`],
     {
       stdio: "inherit",
     },
@@ -33,7 +50,6 @@ async function buildSite() {
 async function startServer() {
   await buildSite();
 
-  const basePath = BASE_PATH || "/docs";
   console.log(`🚀 Starting server on http://localhost:${PORT}${basePath}`);
   console.log(`📁 Serving files from: ${PUBLIC_DIR}`);
   console.log(`Press Ctrl+C to stop\n`);

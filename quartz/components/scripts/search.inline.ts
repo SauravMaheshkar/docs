@@ -98,7 +98,7 @@ const tokenizeTerm = (term: string) => {
     }
   }
 
-  return tokens.sort((a, b) => b.length - a.length) // always highlight longest terms first
+  return tokens.toSorted((a, b) => b.length - a.length) // always highlight longest terms first
 }
 
 function highlight(searchTerm: string, text: string, trim?: boolean) {
@@ -429,7 +429,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     preview.replaceChildren(previewInner)
 
     // scroll to longest
-    const highlights = [...preview.getElementsByClassName("highlight")].sort(
+    const highlights = [...preview.getElementsByClassName("highlight")].toSorted(
       (a, b) => b.innerHTML.length - a.innerHTML.length,
     )
     highlights[0]?.scrollIntoView({ block: "start" })

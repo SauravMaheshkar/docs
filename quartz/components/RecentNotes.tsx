@@ -33,8 +33,12 @@ export default ((userOpts?: Partial<Options>) => {
     cfg,
   }: QuartzComponentProps) => {
     const opts = { ...defaultOptions(cfg), ...userOpts }
-    const pages = allFiles.filter(opts.filter).sort(opts.sort)
+    const pages = allFiles.filter(opts.filter).toSorted(opts.sort)
     const remaining = Math.max(0, pages.length - opts.limit)
+    const baseUrl = cfg.baseUrl ?? ""
+    const url = new URL(`https://${baseUrl}`)
+    const basePath = url.pathname
+
     return (
       <div class={classNames(displayClass, "recent-notes")}>
         <h3>{opts.title ?? i18n(cfg.locale).components.recentNotes.title}</h3>
@@ -64,7 +68,7 @@ export default ((userOpts?: Partial<Options>) => {
                         <li>
                           <a
                             class="internal tag-link"
-                            href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
+                            href={resolveRelative(fileData.slug!, `${basePath}/tags/${tag}` as FullSlug)}
                           >
                             {tag}
                           </a>

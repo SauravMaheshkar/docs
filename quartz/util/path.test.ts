@@ -360,4 +360,19 @@ describe("resolveRelative", () => {
     assert.strictEqual(path.resolveRelative("abc/def" as FullSlug, "ghi" as SimpleSlug), "../ghi")
     assert.strictEqual(path.resolveRelative("abc/def" as FullSlug, "ghi/" as SimpleSlug), "../ghi/")
   })
+
+  test("with base path for tags", () => {
+    assert.strictEqual(
+      path.resolveRelative("index" as FullSlug, "/docs/tags/tag-name" as FullSlug),
+      "./docs/tags/tag-name",
+    )
+    assert.strictEqual(
+      path.resolveRelative("abc/def" as FullSlug, "/docs/tags/tag-name" as FullSlug),
+      "../docs/tags/tag-name",
+    )
+    assert.strictEqual(
+      path.resolveRelative("tags/index" as FullSlug, "/docs/tags/other-tag" as FullSlug),
+      "../docs/tags/other-tag",
+    )
+  })
 })

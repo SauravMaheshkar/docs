@@ -59,10 +59,14 @@ type Props = {
 
 export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort }: Props) => {
   const sorter = sort ?? byDateAndAlphabeticalFolderFirst(cfg)
-  let list = allFiles.sort(sorter)
+  let list = allFiles.toSorted(sorter)
   if (limit) {
     list = list.slice(0, limit)
   }
+
+  const baseUrl = cfg.baseUrl ?? ""
+  const url = new URL(`https://${baseUrl}`)
+  const basePath = url.pathname
 
   return (
     <ul class="section-ul">
@@ -88,7 +92,7 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
                   <li>
                     <a
                       class="internal tag-link"
-                      href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
+                      href={resolveRelative(fileData.slug!, `${basePath}/tags/${tag}` as FullSlug)}
                     >
                       {tag}
                     </a>

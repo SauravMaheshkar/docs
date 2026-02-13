@@ -25,6 +25,10 @@ export default ((opts?: Partial<TagContentOptions>) => {
     const { tree, fileData, allFiles, cfg } = props
     const slug = fileData.slug
 
+    const baseUrl = cfg.baseUrl ?? ""
+    const url = new URL(`https://${baseUrl}`)
+    const basePath = url.pathname
+
     if (!(slug?.startsWith("tags/") || slug === "tags")) {
       throw new Error(`Component "TagContent" tried to render a non-tag page: ${slug}`)
     }
@@ -47,7 +51,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
         ...new Set(
           allFiles.flatMap((data) => data.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes),
         ),
-      ].sort((a, b) => a.localeCompare(b))
+      ].toSorted((a, b) => a.localeCompare(b))
       const tagItemMap: Map<string, QuartzPluginData[]> = new Map()
       for (const tag of tags) {
         tagItemMap.set(tag, allPagesWithTag(tag))
@@ -74,7 +78,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
                   ? contentPage?.description
                   : htmlToJsx(contentPage.filePath!, root)
 
-              const tagListingPage = `/tags/${tag}` as FullSlug
+              const tagListingPage = `${basePath}/tags/${tag}` as FullSlug
               const href = resolveRelative(fileData.slug!, tagListingPage)
 
               return (

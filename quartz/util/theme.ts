@@ -71,7 +71,7 @@ function formatFontSpecification(
     const weightSpec = italic
       ? weights
           .flatMap((w) => [`0,${w}`, `1,${w}`])
-          .sort()
+          .toSorted()
           .join(";")
       : weights.join(";")
 

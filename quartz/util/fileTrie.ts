@@ -135,7 +135,7 @@ export class FileTrieNode<T extends FileTrieData = ContentDetails> {
    * Sort trie nodes according to sort/compare function
    */
   sort(sortFn: (a: FileTrieNode<T>, b: FileTrieNode<T>) => number) {
-    this.children = this.children.sort(sortFn)
+    this.children = this.children.toSorted(sortFn)
     this.children.forEach((e) => e.sort(sortFn))
   }
 

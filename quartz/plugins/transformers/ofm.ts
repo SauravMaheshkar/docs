@@ -22,7 +22,7 @@ import checkboxScript from "../../components/scripts/checkbox.inline"
 // @ts-ignore
 import mermaidScript from "../../components/scripts/mermaid.inline"
 import mermaidStyle from "../../components/styles/mermaid.inline.scss"
-import { FilePath, pathToRoot, slugTag, slugifyFilePath } from "../../util/path"
+import { FilePath, slugTag, slugifyFilePath } from "../../util/path"
 import { toHast } from "mdast-util-to-hast"
 import { toHtml } from "hast-util-to-html"
 import { capitalize } from "../../util/lang"
@@ -211,11 +211,14 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
     markdownPlugins(ctx) {
       const plugins: PluggableList = []
 
+      const baseUrl = ctx.cfg.configuration.baseUrl ?? ""
+      const url = new URL(`https://${baseUrl}`)
+      const basePath = url.pathname
+
       // regex replacements
       plugins.push(() => {
         return (tree: Root, file) => {
           const replacements: [RegExp, string | ReplaceFunction][] = []
-          const base = pathToRoot(file.data.slug!)
 
           if (opts.wikilinks) {
             replacements.push([
@@ -350,7 +353,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
 
                 return {
                   type: "link",
-                  url: base + `/tags/${tag}`,
+                  url: `${basePath}/tags/${tag}`,
                   data: {
                     hProperties: {
                       className: ["tag-link"],

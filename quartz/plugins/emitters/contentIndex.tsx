@@ -63,7 +63,7 @@ function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndexMap, limit?:
   </item>`
 
   const items = Array.from(idx)
-    .sort(([_, f1], [__, f2]) => {
+    .toSorted(([_, f1], [__, f2]) => {
       if (f1.date && f2.date) {
         return f2.date.getTime() - f1.date.getTime()
       } else if (f1.date && !f2.date) {

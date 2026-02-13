@@ -2,13 +2,17 @@ import { FullSlug, resolveRelative } from "../util/path"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { classNames } from "../util/lang"
 
-const TagList: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
+const TagList: QuartzComponent = ({ fileData, displayClass, cfg }: QuartzComponentProps) => {
   const tags = fileData.frontmatter?.tags
+  const baseUrl = cfg.baseUrl ?? ""
+  const url = new URL(`https://${baseUrl}`)
+  const basePath = url.pathname
+
   if (tags && tags.length > 0) {
     return (
       <ul class={classNames(displayClass, "tags")}>
         {tags.map((tag) => {
-          const linkDest = resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)
+          const linkDest = resolveRelative(fileData.slug!, `${basePath}/tags/${tag}` as FullSlug)
           return (
             <li>
               <a href={linkDest} class="internal tag-link">

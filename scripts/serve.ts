@@ -17,7 +17,7 @@ async function buildSite() {
     },
   );
 
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     buildProcess.on("close", (code) => {
       if (code === 0) {
         console.log("✅ Build complete!\n");

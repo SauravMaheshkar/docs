@@ -630,7 +630,11 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
       const anyGlobalGraphOpen = containers.some((container) =>
         container.classList.contains("active"),
       )
-      anyGlobalGraphOpen ? hideGlobalGraph() : renderGlobalGraph()
+      if (anyGlobalGraphOpen) {
+        hideGlobalGraph()
+      } else {
+        renderGlobalGraph()
+      }
     }
   }
 

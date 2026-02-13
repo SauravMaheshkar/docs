@@ -1,12 +1,14 @@
 import { QuartzComponentConstructor, QuartzComponentProps } from "./types";
-import { i18n } from "../i18n";
 
 function DeadLinks({ allFiles, fileData }: QuartzComponentProps) {
   const outgoingLinks = fileData.links || [];
   const existingSlugs = new Set(allFiles.map((f) => f.slug));
 
   // Find dead links (links that don't exist)
-  const deadLinks = outgoingLinks.filter((link) => !existingSlugs.has(link));
+  const deadLinks = outgoingLinks.filter((link) => {
+    const fullSlug = link as unknown as typeof allFiles[number]["slug"]
+    return !existingSlugs.has(fullSlug)
+  })
 
   if (deadLinks.length === 0) {
     return null;

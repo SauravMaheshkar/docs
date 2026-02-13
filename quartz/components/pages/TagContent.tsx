@@ -70,7 +70,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
                 allFiles: pages,
               }
 
-              const contentPage = allFiles.filter((file) => file.slug === `tags/${tag}`).at(0)
+              const contentPage = allFiles.find((file) => file.slug === `tags/${tag}`)
 
               const root = contentPage?.htmlAst
               const content =

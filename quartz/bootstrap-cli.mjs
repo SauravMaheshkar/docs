@@ -38,4 +38,5 @@ yargs(hideBin(process.argv))
   .showHelpOnFail(false)
   .help()
   .strict()
-  .demandCommand().argv
+  .demandCommand()
+void yargs.argv

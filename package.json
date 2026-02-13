@@ -13,7 +13,8 @@
   },
   "scripts": {
     "quartz": "./quartz/bootstrap-cli.mjs",
-    "docs": "bun run quartz build --serve -d docs",
+    "docs": "bun run quartz build --serve -d docs --baseDir /docs",
+    "docs:local": "bun run quartz build --serve -d docs",
     "check": "tsc --noEmit && oxlint .",
     "format": "oxlint . --fix",
     "test": "tsx --test",
@@ -100,6 +101,7 @@
     "yargs": "^18.0.0"
   },
   "devDependencies": {
+    "@types/bun": "^1.1.0",
     "@types/d3": "^7.4.3",
     "@types/hast": "^3.0.4",
     "@types/js-yaml": "^4.0.9",

@@ -245,13 +245,21 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     if (e.key === "k" && (e.ctrlKey || e.metaKey) && !e.shiftKey) {
       e.preventDefault()
       const searchBarOpen = container.classList.contains("active")
-      searchBarOpen ? hideSearch() : showSearch("basic")
+      if (searchBarOpen) {
+        hideSearch()
+      } else {
+        showSearch("basic")
+      }
       return
     } else if (e.shiftKey && (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
       // Hotkey to open tag search
       e.preventDefault()
       const searchBarOpen = container.classList.contains("active")
-      searchBarOpen ? hideSearch() : showSearch("tags")
+      if (searchBarOpen) {
+        hideSearch()
+      } else {
+        showSearch("tags")
+      }
 
       // add "#" prefix for tag search
       searchBar.value = "#"

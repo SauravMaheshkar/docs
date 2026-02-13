@@ -5,6 +5,7 @@ import { spawn } from "child_process";
 
 const PORT = process.env.PORT || 8080;
 const PUBLIC_DIR = "./public";
+const BASE_PATH = process.env.BASE_PATH || "";
 
 async function buildSite() {
   console.log("🔨 Building site...");
@@ -32,7 +33,8 @@ async function buildSite() {
 async function startServer() {
   await buildSite();
 
-  console.log(`🚀 Starting server on http://localhost:${PORT}`);
+  const basePath = BASE_PATH || "/docs";
+  console.log(`🚀 Starting server on http://localhost:${PORT}${basePath}`);
   console.log(`📁 Serving files from: ${PUBLIC_DIR}`);
   console.log(`Press Ctrl+C to stop\n`);
 
@@ -41,6 +43,11 @@ async function startServer() {
     async fetch(req) {
       const url = new URL(req.url);
       let path = url.pathname;
+
+      // Strip base path prefix if present
+      if (basePath && path.startsWith(basePath)) {
+        path = path.slice(basePath.length) || "/";
+      }
 
       // Default to index.html for root paths
       if (path === "/" || path === "") {

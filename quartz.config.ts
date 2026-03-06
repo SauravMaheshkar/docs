@@ -17,7 +17,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "sauravmaheshkar.github.io/docs",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: ["private", "templates", ".obsidian", "03 - daily/", "04 - goals/"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",

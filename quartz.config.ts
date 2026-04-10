@@ -76,7 +76,7 @@ const config: QuartzConfig = {
         externalLinkIcon: true,
       }),
       Plugin.Description(),
-      Plugin.Latex({ renderEngine: "katex" }),
+      Plugin.Latex({ renderEngine: "mathjax" }),
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [
